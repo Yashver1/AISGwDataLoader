@@ -1,0 +1,15 @@
+config_path: ./config.yaml
+
+data: 
+  db_path: ./data/calls.db
+  numerical: ['Call Frequency','Previous Contact Count','Call Duration']
+  categorical: ['Flagged by Carrier','Country Prefix']
+  label: 'Scam Call'
+
+impute_na:
+  financial_loss: 0
+
+random_state: 73 #must be random state used in EDA
+
+
+  
