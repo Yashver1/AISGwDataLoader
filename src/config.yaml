@@ -1,0 +1,29 @@
+data:
+  db_path: ../data/calls.db
+  
+
+dataloader: 
+  transformer_path: ../transformers/transformer.pkl
+
+
+experiment:
+  random_state: 73
+  label: ['Scam Call']
+  numerical_features: ['Call Frequency','Previous Contact Count','Call Duration']
+  categorical_features: ['Flagged by Carrier','Country Prefix','Call Type']
+  drop_features: ['ID','Financial Loss','Is International','Timestamp','Device Battery']
+  n_iter: 10
+
+
+models:
+  rf:
+    model_path: ../models/random_forest.pkl
+    param_grid:
+      n_estimators: [100, 200, 300, 400, 500]
+      max_depth: [10, 20, 30, 40, 50]
+      min_samples_split: [2, 5, 10]
+      min_samples_leaf: [1, 2, 4]
+      bootstrap: [True, False]
+
+  svm:
+  gb:
