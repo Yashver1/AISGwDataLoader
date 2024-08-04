@@ -10,12 +10,8 @@ dl.save_transformer()
 dl.load_transformer()
 
 randomforest = RandomForest(config_path, dl, random_state=73)
-best_params = randomforest.train(X_train,y_train)
+best_params = randomforest.train(X_train, y_train)
 predictions = randomforest.predict(X_test)
 
 print(best_params)
-print(accuracy_score(y_test,predictions))
-
-
-
-
+print(accuracy_score(y_test, predictions))
