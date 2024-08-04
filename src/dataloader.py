@@ -36,8 +36,9 @@ class DataLoader():
             y = y[FL_idx]
 
         X = X.drop(columns=self.config['experiment']['drop_features'])
-        median_call_duration = X.loc[X['Call Duration']
-                                     > 0, 'Call Duration'].median()
+        median_call_duration = X.loc[
+            X['Call Duration'] > 0, 'Call Duration'
+        ].median()
         X.loc[X['Call Duration'] < 0,
               'Call Duration'] = median_call_duration
         X[[
