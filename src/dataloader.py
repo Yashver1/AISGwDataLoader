@@ -48,13 +48,12 @@ class DataLoader():
             X[['Call Duration', 'Call Frequency', 'Previous Contact Count']])
 
         if fit:
-            transformer = ColumnTransformer(
-                [("norm",
-                  Normalizer(),
-                  self.config['experiment']['numerical_features']),
-                 ("one_hot",
-                  OneHotEncoder(),
-                  self.config['experiment']['categorical_features'])])
+            transformer = ColumnTransformer([
+                ("norm", Normalizer(),
+                 self.config['experiment']['numerical_features']),
+                ("one_hot", OneHotEncoder(),
+                 self.config['experiment']['categorical_features'])
+            ])
             X = transformer.fit_transform(X)
             self.transformer = transformer
         else:
